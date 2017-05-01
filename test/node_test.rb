@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/node.rb'
+require './lib/node'
 
 class NodeTest < Minitest::Test
 
@@ -11,13 +11,13 @@ class NodeTest < Minitest::Test
   end
 
   def test_node_can_return_data
-    node = Node.new
+    node = Node.new("plop")
 
     assert_equal "plop", node.data
   end
 
   def test_next_node_data_returns_nil
-    node = Node.new
+    node = Node.new("plop")
 
     assert_nil node.next_node
   end

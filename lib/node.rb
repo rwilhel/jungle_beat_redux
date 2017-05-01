@@ -1,10 +1,10 @@
+require './lib/linked_list.rb'
+
 class Node
+  attr_accessor :data, :next_node
 
-  def data
-    "plop"
-  end
-
-  def next_node
-    nil
+  def initialize(data = "", next_node = nil)
+    @next_node = next_node
+    @data = data
   end
 end
