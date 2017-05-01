@@ -17,6 +17,22 @@ class LinkedList
     @head.data
   end
 
+  def prepend(data)
+    node = Node.new(data)
+    if @head == nil
+      @head = node
+    else
+      pass_thru = @head
+      unless pass_thru.next_node == nil
+        pass_thru = pass_thru.next_node
+      end
+    end
+    pass_thru.next_node = node
+    node.next_node = nil
+    node.data
+    @count += 1
+  end
+
   def to_string
     string = ""
     if @head
@@ -27,8 +43,7 @@ class LinkedList
         next_node = next_node.next_node
       end
     end
-    string
-    binding.pry
+    string_set = string.split(" ").reverse
+    string_set.join(" ")
   end
-
 end

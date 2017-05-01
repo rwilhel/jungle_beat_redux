@@ -26,7 +26,6 @@ class LinkedListTest < Minitest::Test
   def test_linked_list_returns_next_node
     list = LinkedList.new(nil)
     list.append("doop")
-    list.append("deep")
 
     assert_nil list.head.next_node
   end
@@ -48,5 +47,18 @@ class LinkedListTest < Minitest::Test
 
     list.append("deep")
     assert_equal "doop deep", list.to_string
+  end
+
+  def test_new_nodes_can_be_added_to_beginning
+    list = LinkedList.new
+
+    assert_equal "plop", list.append("plop")
+    assert_equal "plop", list.to_string
+
+    list.append("suu")
+    list.prepend("dop")
+
+    assert_equal "dop plop suu", list.to_string
+    assert_equal 3, list.count
   end
 end
