@@ -88,4 +88,10 @@ class LinkedList
        pass_thru = pass_thru.next_node
      end
   end
+
+  def pop
+    extracted_element = @head.data
+    @head = @head.next_node
+    extracted_element
+  end
 end
