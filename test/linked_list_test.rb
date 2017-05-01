@@ -51,14 +51,44 @@ class LinkedListTest < Minitest::Test
 
   def test_new_nodes_can_be_added_to_beginning
     list = LinkedList.new
-
-    assert_equal "plop", list.append("plop")
-    assert_equal "plop", list.to_string
-
+    list.append("plop")
     list.append("suu")
     list.prepend("dop")
 
     assert_equal "dop plop suu", list.to_string
     assert_equal 3, list.count
+  end
+
+  def test_new_nodes_can_be_inserted_at_position
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+
+    assert_equal "dop woo plop suu", list.to_string
+  end
+
+  def test_it_can_find_an_element
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+
+    assert_equal "shi", list.find(2,1)
+    assert_equal "woo shi shu", list.find(1,3)
+  end
+
+  def test_it_includes_supplied_element
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+
+    assert list.includes?("deep")
   end
 end
